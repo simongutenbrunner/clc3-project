@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CalculatorService {
+    public CalculatorService() {
+    }
 
     /**
      * Adds two numbers a and b
