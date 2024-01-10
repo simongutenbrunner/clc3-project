@@ -1,3 +1,6 @@
+/**
+ * Package containing all the Services. Services implement business logic.
+ */
 package at.clc.calculator.services;
 
 import org.springframework.stereotype.Service;
@@ -7,8 +10,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CalculatorService {
-    public CalculatorService() {
-    }
 
     /**
      * Adds two numbers a and b
@@ -17,8 +18,6 @@ public class CalculatorService {
      * @return sum of a + b
      */
     public int add(int a, int b){
-
-        // add a + b and return the result
         return a+b;
     }
 }

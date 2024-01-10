@@ -1,3 +1,6 @@
+/**
+ * Package containing all the controllers. Controllers implement REST endpoints.
+ */
 package at.clc.calculator.controllers;
 
 import at.clc.calculator.services.CalculatorService;
