@@ -17,6 +17,8 @@ public class CalculatorService {
      * @return sum of a + b
      */
     public int add(int a, int b){
+
+        // add a + b and return the result
         return a+b;
     }
 }
