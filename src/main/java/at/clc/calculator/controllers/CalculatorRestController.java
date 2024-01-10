@@ -20,7 +20,7 @@ public class CalculatorRestController {
     }
 
     /**
-     * Adds the two request params together
+     * Rest endpoint for adding two numbers a and b
      * @param a first request param
      * @param b second request param
      * @return sum of request params a + b
