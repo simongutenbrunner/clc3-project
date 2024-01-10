@@ -42,7 +42,8 @@
                 <version>3.6.3</version>
                 <configuration>
                     <show>public</show>
-                    <reportOutputDirectory>${project.basedir}/docs</reportOutputDirectory>
+                    <reportOutputDirectory>${project.basedir}</reportOutputDirectory>
+                    <destDir>docs</destDir>
                 </configuration>
             </plugin>
         </plugins>
