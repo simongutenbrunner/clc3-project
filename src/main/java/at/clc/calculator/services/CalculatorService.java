@@ -6,7 +6,7 @@ package at.clc.calculator.services;
 import org.springframework.stereotype.Service;
 
 /**
- * The CalculatorService holds the implementation for all calculation logic used by the application.
+ * The CalculatorService holds the implementation for all calculation logic used by the application. blubb
  * test docs 2
  */
 @Service
