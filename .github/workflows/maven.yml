@@ -81,5 +81,11 @@ jobs:
         push: true
         tags: simgut/calculator:${{ steps.vars.outputs.sha_short }}
 
-    - name: Build JavaDoc
-      run: mvn clean javadoc:javadoc
+    # Deploy JavaDoc
+    - name: Deploy JavaDoc
+      uses: MathieuSoysal/Javadoc-publisher.yml@v2.3.0
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        javadoc-branch: javadoc
+        java-version: 17
+        target-folder: javadoc 
