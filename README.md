@@ -1,3 +1,26 @@
+# GitHub Actions
+The defined GitHub Actions worklow automates the building, testing, deployment process for a Java project using Maven, along with building and pushing a Docker image and deploying JavaDoc.
+### 1. Trigger Events
+- **Trigger Events**:   
+    - Triggered on **push** events to the branches: ```main, develop``` and to all branches which are located in ```feature/*```
+    - Triggered on **pull_request** targeting branches ```main, develop, feature```
+### 2. Jobs
+- **build_on_feature**: Executed if the branch is a ```feature``` branches
+- **build_others**: Exectued if the branch is ```main``` or ```develop```
+
+### 3. Steps
+Steps for both jobs:  
+- **'actions/checkout'**: checkout the repository
+- **'actions/setup.java'** set up JDK 17
+- **'mvn clean install -B'** build the Java project with Maven
+- **'mvn test -Dtest=CalculatorApplicationTests'**: run JUnit tests  
+
+Specific steps for **'build_others'**
+- **'docker/build-push-actions@v5'** build Docker image
+- **'MathieuSoyal/Javadoc-publisher.yml'** deploy JavaDoc
+
+
+
 # Git Flow Example
 ## Create Develop Branch
 Create a ```develop``` branch and initialize the supporting branch prefixes.
