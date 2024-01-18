@@ -32,5 +32,8 @@ public class CalculatorRestController {
     public String add(@RequestParam int a, @RequestParam int b) {
         return String.valueOf(calculatorService.add(a,b));
     }
+    @GetMapping("/sub")
+    public String subtract(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(calculatorService.subtract(a,b));
+    }
 }
-
