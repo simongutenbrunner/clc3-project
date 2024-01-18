@@ -10,9 +10,7 @@ name: Release
 
 on:
   push:
-    tags: ["main"]
-  pull_request:
-    tags: ["main"]
+    tags: ["v*"]
 
 jobs:
   build_main_release:
