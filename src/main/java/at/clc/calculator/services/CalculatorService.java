@@ -29,6 +29,6 @@ public class CalculatorService {
      * @return difference of i - i1
      */
     public int subtract(int i, int i1) {
-        return Math.abs(i - i1 +1);
+        return Math.abs(i - i1 );
     }
 }
