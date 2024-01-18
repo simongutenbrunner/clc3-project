@@ -27,4 +27,9 @@ class CalculatorApplicationTests {
         assertEquals(-4, this.calculatorService.add(-2,-2));
     }
 
+    @Test
+    public void testSubtract(){
+        assertEquals(0, this.calculatorService.subtract(2,2));
+    }
+
 }
