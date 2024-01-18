@@ -15,7 +15,6 @@ on:
     branches: [ "develop", "release"]
 
 jobs:
-  if: contains(github.ref, 'refs/heads/')
   build_main_release:
     runs-on: ubuntu-latest
     steps:
