@@ -23,7 +23,7 @@ public class CalculatorService {
     }
 
     /**
-     * Subtracts two numbers a and b
+     * Subtracts number b from number a
      * @param a minuend
      * @param b subtrahend
      * @return Difference of a - b
