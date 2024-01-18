@@ -27,7 +27,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Maven Install
-      run: mvn clean install -B
+      run: mvn --no-transfer-progress clean install -B
 
   build_main_release:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release'
@@ -41,7 +41,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Maven Install
-      run: mvn clean install -B
+      run: mvn --no-transfer-progress clean install -B
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -67,7 +67,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: simgut/calculator:${{ steps.vars.outputs.sha_short }}
+        tags: simgut/calculator:${{ github.ref_name }}
 
     # Deploy JavaDoc
     - name: Deploy JavaDoc
