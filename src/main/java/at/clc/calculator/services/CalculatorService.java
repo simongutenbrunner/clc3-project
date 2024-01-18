@@ -32,4 +32,8 @@ public class CalculatorService {
         // ret
         return Math.abs(a-b);
     }
+
+    public int multiply(int i, int i1) {
+        return i*i1;
+    }
 }
