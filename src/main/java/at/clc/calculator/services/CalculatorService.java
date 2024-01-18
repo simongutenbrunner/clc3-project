@@ -29,6 +29,6 @@ public class CalculatorService {
      * @return product of a*b
      */
     public int multiply(int a, int b){
-        return Math.abs(a*b);
+        return a*b;
     }
 }
