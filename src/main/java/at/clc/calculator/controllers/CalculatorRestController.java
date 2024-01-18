@@ -33,13 +33,13 @@ public class CalculatorRestController {
     }
 
     /**
-     * Rest endpoint for subtractiong two numbers a and b
+     * Rest endpoint for multiplying two numbers a and b
      * @param a first request param
      * @param b second request param
-     * @return dif of request params a - b
+     * @return product of a*b
      */
-    @GetMapping("/sub")
+    @GetMapping("/mul")
     public String subtract(@RequestParam int a, @RequestParam int b) {
-        return String.valueOf(calculatorService.subtract(a,b));
+        return String.valueOf(calculatorService.multiply(a,b));
     }
 }

@@ -27,7 +27,7 @@ class CalculatorApplicationTests {
     }
 
     @Test
-    public void testSubstract(){
-        assertEquals(5, this.calculatorService.subtract(6,1));
+    public void testMultiply(){
+        assertEquals(25, this.calculatorService.multiply(5,5));
     }
 }
