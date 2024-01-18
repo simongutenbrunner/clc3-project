@@ -16,7 +16,7 @@ on:
 
 jobs:
   build_main_release:
-    if: github.ref == 'refs/tags/**'
+    if: contains(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
     # Setup Java

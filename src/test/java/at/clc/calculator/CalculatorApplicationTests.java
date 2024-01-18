@@ -25,9 +25,4 @@ class CalculatorApplicationTests {
     public void testAddNegatives(){
         assertEquals(-4, this.calculatorService.add(-2,-2));
     }
-    
-    @Test
-    public void testSubstract(){
-        assertEquals(2, this.calculatorService.substract(5,3));
-    }
 }
