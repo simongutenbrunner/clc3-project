@@ -1,5 +1,4 @@
 # Project Description
-## Proposal
 ## Technology Stack
 
 # Git Flow
