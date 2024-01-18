@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"at.clc.calculator"},{"l":"at.clc.calculator.controllers"},{"l":"at.clc.calculator.services"}];updateSearchResults();
