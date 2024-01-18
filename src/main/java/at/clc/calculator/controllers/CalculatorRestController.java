@@ -32,4 +32,14 @@ public class CalculatorRestController {
         return String.valueOf(calculatorService.add(a,b));
     }
 
+    /**
+     * Rest endpoint for subtractiong two numbers a and b
+     * @param a first request param
+     * @param b second request param
+     * @return dif of request params a - b
+     */
+    @GetMapping("/sub")
+    public String subtract(@RequestParam int a, @RequestParam int b) {
+        return String.valueOf(calculatorService.subtract(a,b));
+    }
 }
