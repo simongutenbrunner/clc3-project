@@ -30,4 +30,8 @@ class CalculatorApplicationTests {
     public void testMultiply(){
         assertEquals(25, this.calculatorService.multiply(5,5));
     }
+    @Test
+    public void testMultiplyNegative(){
+        assertEquals(-25, this.calculatorService.multiply(-5,5));
+    }
 }
