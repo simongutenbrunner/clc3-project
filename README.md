@@ -1,3 +1,9 @@
+# Project Description
+## Proposal
+## Technology Stack
+
+# Git Flow
+
 # GitHub Actions
 The defined GitHub Actions worklow automates the building, testing, deployment process for a Java project using Maven, along with building and pushing a Docker image and deploying JavaDoc.
 ### 1. Trigger Events
