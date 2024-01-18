@@ -23,13 +23,12 @@ public class CalculatorService {
     }
 
     /**
-     * Subtracts two numbers a and b
-     * @param a first summand
-     * @param b second sumand
-     * @return difference of a - b
+     * Subtracts number b from number a
+     * @param a minuend
+     * @param b subtrahend
+     * @return Difference of a - b
      */
     public int subtract(int a, int b){
-        // ret
-        return Math.abs(a-b+1);
+        return Math.abs(a-b);
     }
 }
