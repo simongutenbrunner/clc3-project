@@ -6,33 +6,20 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Release
 
 on:
   push:
-    branches: ["main", "develop", "feature/*", "release", "hotfix"]
+    branches: ["main"]
   pull_request:
-    branches: [ "main", "develop", "release"]
+    branches: ["main"]
 
 jobs:
-  build_always:
-    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/feature/**'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Maven Install
-      run: mvn --no-transfer-progress clean install -B
-
   build_main_release:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release'
+    if: github.ref == 'refs/tags/**'
     runs-on: ubuntu-latest
     steps:
+    # Setup Java
     - uses: actions/checkout@v3
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -40,7 +27,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Maven Install
+
+    # Run Maven Build
+    - name: Run Maven Build
       run: mvn --no-transfer-progress clean install -B
 
     - name: Set up Docker Buildx
@@ -61,7 +50,7 @@ jobs:
         echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     # Build a Docker image based on the provided Dockerfile
-    - name: Build docker image
+    - name: Publish Docker Image on Docker-Hub
       id: docker_build
       uses: docker/build-push-action@v5
       with:
