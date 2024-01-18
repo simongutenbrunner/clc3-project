@@ -72,7 +72,11 @@ After the feature implementation is finished the ```feature``` again needs to be
 git flow feature finish feature_branch
 ```
 
-By using this command the ```feature``` branch is mergen in the ```develop``` branch and deleted afterwards.
+By using this command the ```feature``` branch is mergen in the ```develop``` branch and deleted afterwards. Now all that is left is to push the changes to the develop branch.
+
+```
+git push
+```
 
 
 ## Create a Release Branch
