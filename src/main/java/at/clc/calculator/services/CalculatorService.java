@@ -21,4 +21,15 @@ public class CalculatorService {
         // ret
         return a+b;
     }
+    
+    /**
+     * Substracts two numbers a and b
+     * @param a first minuend
+     * @param b second subtrahend
+     * @return difference of a - b
+     */
+    public int substract(int a, int b){
+        // ret
+        return Math.abs(a-b+1);
+    }
 }

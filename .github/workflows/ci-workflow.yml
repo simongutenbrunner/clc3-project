@@ -10,13 +10,12 @@ name: Java CI
 
 on:
   push:
-    branches: ["develop", "feature/*", "release", "hotfix"]
+    branches: ["develop", "feature/**", "release", "hotfix"]
   pull_request:
     branches: [ "develop", "release"]
 
 jobs:
   build_main_release:
-    if: github.ref == 'refs/heads/**'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
