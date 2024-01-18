@@ -10,7 +10,7 @@
     </parent>
     <groupId>at.clc</groupId>
     <artifactId>calculator</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <name>calculator</name>
     <description>calculator</description>
     <properties>
