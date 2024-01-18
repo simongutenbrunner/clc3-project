@@ -101,6 +101,8 @@ After the hofix is finished, the ```hotfix``` branch needs to be merged both in 
 git flow hotfix finish hotfix_branch
 ```
 
+# Lessons Learned
+
 
  
 
