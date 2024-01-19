@@ -1,5 +1,6 @@
 # Project Description
 The Calculator Web Application is a containerized project designed to illustrate an efficient development workflow utilizing GitHub Actions and the Gitflow extention for the development workflow. The primary goal is to demonstrate a well-organized development process with integrated automatic documentation generation and Continuous Integration (CI) capabilities. Following the Git flow principle, the repository is configured to automatically execute unit tests, providing immediate feedback to the developers. This ensures that the codebase remains robust and reliable throughout the development lifecycle.
+The documentation can be found [here](https://simongutenbrunner.github.io/clc3-project/)
 
 ## Key features
 1. Containerized Calculator Web Application
