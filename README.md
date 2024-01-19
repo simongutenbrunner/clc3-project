@@ -298,7 +298,16 @@ Deploys JavaDoc using a third-party action (MathieuSoysal/Javadoc-publisher.yml@
 * Setting up a proper workflow using Github actions can be a pain, especially the first time, but once done right is a really satisfying improvement for your quality-of-life.
 * Don't reinvent the wheel
 * The rabbit hole goes deeper (Jenkins, CD, Webhooks, ...)
-* 
+
+# Citations
+* https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+* https://docs.github.com/en/actions
+* https://github.com/MathieuSoysal/Javadoc-publisher.yml
+* https://github.com/clc3-CloudComputing/clc3-ws23/tree/main/2%20-Continuous-Integration/exercise2.2
+* https://www.java.com/
+* https://maven.apache.org/
+* https://www.docker.com/
+* https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html
 
  
 
