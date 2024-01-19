@@ -9,6 +9,7 @@ The documentation can be found [here](https://simongutenbrunner.github.io/clc3-p
 2. Git Flow Principle Integration
 3. Automatic Documentation Generation
 4. CI Feature Implementation
+5. Automatically Publishing released Versions on DockerHub
 
 ## Technology Stack
 **Java**:
