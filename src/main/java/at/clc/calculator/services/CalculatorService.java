@@ -21,25 +21,4 @@ public class CalculatorService {
         // ret
         return a+b;
     }
-
-    /**
-     * Subtracts two numbers a and b
-     * @param a minuend
-     * @param b subtrahend
-     * @return dif of a-b
-     */
-    public int sub(int a, int b){
-        // ret
-        return a-b;
-    }
-
-    /**
-     * Multiply two numbers a and b
-     * @param a first factor
-     * @param b second factor
-     * @return product of a*b
-     */
-    public int multiply(int a, int b){
-        return a*b;
-    }
 }
