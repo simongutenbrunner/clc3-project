@@ -104,6 +104,8 @@ git push --tags
 ```
 ```
 git push --all
+```
+
 
 # Lessons Learned
 * Setting up a proper workflow using Github actions can be a pain, especially the first time, but once done right is a really satisfying improvement for your quality-of-life.
