@@ -3,45 +3,6 @@
 
 # Git Flow
 
-# GitHub Actions
-The defined GitHub Actions worklow automates the building, testing, deployment process for a Java project using Maven, along with building and pushing a Docker image and deploying JavaDoc.
-### 1. Trigger Events
-- **Trigger Events**:   
-    - Triggered on **push** events to the branches: ```main, develop``` and to all branches which are located in ```feature/*```
-    - Triggered on **pull_request** targeting branches ```main, develop, feature```
-### 2. Jobs
-- **build_on_feature**: Executed if the branch is a ```feature``` branches
-- **build_others**: Exectued if the branch is ```main``` or ```develop```
-
-### 3. Steps
-Steps for both jobs:  
-- **'actions/checkout'**: checkout the repository
-- **'actions/setup.java'** set up JDK 17
-- **'mvn clean install -B'** build the Java project with Maven
-- **'mvn test -Dtest=CalculatorApplicationTests'**: run JUnit tests  
-
-Specific steps for **'build_others'**
-- **'docker/build-push-actions@v5'** build Docker image
-- **'MathieuSoyal/Javadoc-publisher.yml'** deploy JavaDoc
-
-
-
-# Git Flow Example
-## Create Develop Branch
-Create a ```develop``` branch and initialize the supporting branch prefixes.
-
-```
-git flow init
-```
-This allows you to initialize the following supporting branches:  
-
-- ```feature```
-- ```release```
-- ```hotfix```
-- ```support```
-
-What are the listed branches used for and how do they interact?
-
 - ```main branch```: stable, production-ready state of project, should be deployable any time
 - ```development branch```: features and fixes merged into this branch => development and integration
 - ```feature branch```: branch off from develop and merge back into develop
@@ -58,55 +19,82 @@ The defined Git Workflow:
 - The ```hotfix``` is merged into both ```main``` and ```develop```.
 - The cycle continues with ongoing development in the ```develop``` branch.
 
+# GitHub Actions
+
+# Git Flow Example
+## Create Develop Branch
+
+To start working with git flow you first need to initialize the git flow extension
+```
+git flow init
+```
+
+
 ## Create a Feature branch
 
-With Git-Flow it is possible to automatically create a feature brach out of a current ```develop``` branch by using the following Git-Flow command
-
+With Git-Flow it is possible to automatically create a feature brach out of a current `develop` branch by using the following Git-Flow command:
 ```
-git flow feature start feature_branch
+git flow feature start <feature_name>
 ```
 
-After the feature implementation is finished the ```feature``` again needs to be merged in the ```develop``` branch.
 
+After the feature branch has been created you can start implementing on it, using `git commit and git push` to keep the feature branch up to date during development.
+In any case make sure to add the branch to origin using
+```
+git push --set-upstream origin feature/<feature_name>
+```
+
+When the feature was sucessfully implemented you can merge the feature branch back to develop:
 ```
 git flow feature finish feature_branch
 ```
 
 By using this command the ```feature``` branch is mergen in the ```develop``` branch and deleted afterwards. Now all that is left is to push the changes to the develop branch.
-
 ```
 git push
 ```
 
 
 ## Create a Release Branch
-When a ```develop``` branch includes enough features for a release, a ```release``` branch is forked from the ```develop``` branch. At this time no new features should be added to the branch, only bugfixes or release-oriented changes are allowed. 
+When a `develop` branch includes enough features for a release, a new `release` branch is created from the ```develop``` branch.
 
 ```
-git flow release start 0.1.0
+git flow release start <release_version>
+```
+At this time no new features should be added to the branch, only bugfixes or release-oriented changes like bumping the version number are allowed.
+Please also make sure to push the branch to origin using:
+```
+git push --set-upstream origin release/<release_version>
 ```
 
-If release is ready the ```release``` branch is merged in the ```main``` branch and tagged with a version number. The ```release``` branch should also be merged in the ```develop``` branch. 
-
+To finish the release process, the release branch needs to be merged into main. Then a new tag `v<release_version>` will be created. Then the tag will be merged into `develop` and the `release/<release version>` branch will be deleted.
+All this can be achieved at once using:
 ```
-git flow release finish '0.1.0'
+git flow release finish <release_version>
 ```
 
 ## Create Hotfix Branch
-A ```hotfix``` branch is the only branch that should be forked from the ```main``` branch. 
-
+When you need to do minor, but very urgent changes directly on the main branch you can do this via Hotfixes.
+Firstly you need to start a new hotfix branch, branching directly off `main` using:
 ```
-git flow hotfix start hotfix_branch
+git flow hotfix start <hotfix_version>
 ```
 
-After the hofix is finished, the ```hotfix``` branch needs to be merged both in ```main``` and ```develop```, and the ```main``` branch needs to be tagged with a new version number.
-
+On this branch you can commit and push your fixes. Please make also sure to then push the branch to origin using:
 ```
-git flow hotfix finish hotfix_branch
+git push --set-upstream origin hotfix/<hotfix_version>
+```
+
+To finish the hotfix process, the hotfix branch needs to be merged into main. Then a new tag `v<hotfix_version>` will be created. Then the tag will be merged into `develop` and the `hotfix/<hotfix_version>` branch will be deleted.
+All this can be achieved at once using:
+```
+git flow hotfix finish <hotfix_version>
 ```
 
 # Lessons Learned
-
+* Setting up a proper workflow using Github actions can be a pain, especially the first time, but once done right is a really satisfying improvement for your quality-of-life.
+* The rabbit hole goes deeper (Jenkins, CD, Webhooks, ...)
+* 
 
  
 
