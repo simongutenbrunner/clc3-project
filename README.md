@@ -148,9 +148,9 @@ git push --all
 ```
 on:
     push:
-        branches: ["develop", "feature/**", "release", "hotfix"]
+        branches: ["develop", "feature/**", "hotfix/**"]
     pull_request:
-        branches: [ "develop", "release"]
+        branches: [ "develop"]
 ```
 The workflow is triggered on two events:
 - Push events on branches named "develop," "release," "feature/**," or "hotfix."
