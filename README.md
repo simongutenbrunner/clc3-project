@@ -33,7 +33,7 @@ The defined Git Workflow:
 # GitHub Actions
 
 # Git Flow Example
-## Create Develop Branch
+## Initialize Git Flow
 
 To start working with git flow you first need to initialize the git flow extension
 ```
