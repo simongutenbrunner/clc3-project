@@ -57,6 +57,8 @@ The defined Git Workflow:
 # GitHub Actions
 
 # Git Flow Example
+![Workflow Example](/images/clc3_project_example.png)
+
 ## Initialize Git Flow
 
 To start working with git flow you first need to initialize the git flow extension
