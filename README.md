@@ -11,6 +11,29 @@ The documentation can be found [here](https://simongutenbrunner.github.io/clc3-p
 4. CI Feature Implementation
 
 ## Technology Stack
+**Java**:
+- Primary programming language for developing the core functionalities of the calculator web application  
+
+**Docker**:
+- Containerization technology used to encapsulate the calculator web application and its dependencies.  
+
+**Maven**:
+- Build automation tool for managing the project's build lifecycle  
+
+**GitHub**:
+- Version control platform hosting the project repository
+- Facilitates collaborative development, version tracking, and provides a centralized location for codebase hosting
+
+**GitHub Actions**:
+- Configured to automate tasks such as running unit tests, building the application, and deploying container images
+
+**GitFlow Extension**:
+- Extension for Git that implements the Git flow branching model.
+- Enhances collaboration and streamlines the development process by providing a structured approach to feature branching, releases, and hotfixes
+
+### Interaction of the Technologies
+- **Development Workflow**: GitFlow extension is employed to manage feature branches, releases, and hotfixes within the Git repository. Maven is used for building the Java application, handling dependencies, and packaging artifacts.
+- **Continuous Integration (CI)**: GitHub Actions is configured to automatically trigger CI workflows on each push to the repository. CI workflows include tasks such as running unit tests using Maven and providing immediate feedback to developers
 
 # Git Flow
 
