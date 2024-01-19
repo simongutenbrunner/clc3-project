@@ -54,8 +54,6 @@ The defined Git Workflow:
 - The ```hotfix``` is merged into both ```main``` and ```develop```.
 - The cycle continues with ongoing development in the ```develop``` branch.
 
-# GitHub Actions
-
 # Git Flow Example
 ![Workflow Example](/images/clc3_project_example.png)
 
@@ -142,6 +140,158 @@ git push --tags
 ```
 git push --all
 ```
+# GitHub Actions
+    name: Java CI
+      
+
+**Trigger Conditions**:  
+```
+on:
+    push:
+        branches: ["develop", "feature/**", "release", "hotfix"]
+    pull_request:
+        branches: [ "develop", "release"]
+```
+The workflow is triggered on two events:
+- Push events on branches named "develop," "release," "feature/**," or "hotfix."
+- Pull request events on branches "develop" or "release."  
+
+**Jobs**: 
+```
+jobs:
+    build_main_release:
+```  
+This workflow consists of a single job named "build_main_release."
+
+**Operating System**
+```
+runs-on: ubuntu-latest
+```
+The job runs on the latest version of the Ubuntu operating system.
+
+**Steps**:  
+```
+steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+    uses: actions/setup-java@v3
+    with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Run Maven Build
+    run: mvn --no-transfer-progress clean install -B
+```
+- Checkout Action: The first step uses the actions/checkout action to clone the repository into the runner's workspace.
+- Set up JDK 17: The second step sets up Java Development Kit (JDK) version 17 using the actions/setup-java action. It specifies the Java version, distribution (Temurin), and caches Maven dependencies for improved workflow execution time.
+- Run Maven Build: The third step runs the Maven build using the mvn command. It performs a clean install of the project, skipping the transfer progress output (--no-transfer-progress), and running in batch mode (-B)
+
+**Workflow Information:**
+```
+name: Release
+```
+
+The workflow is named "Release."
+
+**Trigger Conditions:**
+```
+on:
+    push:
+        tags: ["v*"]
+```
+The workflow is triggered when a new tag is pushed to the repository. The trigger condition specifies tags starting with "v."
+
+**Jobs:**
+```
+jobs:
+  build_main_release:
+```
+This workflow consists of a single job named "build_main_release."
+
+**Job Conditions:**
+```
+if: contains(github.ref, 'refs/tags/')
+```
+
+The job runs only if the GitHub reference contains "refs/tags/," indicating that it is a tag-based release.
+
+**Operating System:**
+```
+runs-on: ubuntu-latest
+```
+The job runs on the latest version of the Ubuntu operating system.
+
+**Steps:**  
+Java Setup:  
+The job contains several steps that perform various tasks:
+```
+- uses: actions/checkout@v3
+- name: Set up JDK 17
+  uses: actions/setup-java@v3
+  with:
+    java-version: '17'
+    distribution: 'temurin'
+    cache: maven
+```
+This sets up the Java Development Kit (JDK) version 17 for the build and caches Maven dependencies for improved workflow execution time.
+
+Maven Build:
+```
+- name: Run Maven Build
+  run: mvn --no-transfer-progress clean install -B
+```
+Executes the Maven build for the Java project.
+
+Docker Setup:
+```
+- name: Set up Docker Buildx
+  uses: docker/setup-buildx-action@v3
+```
+Sets up Docker Buildx for building multi-platform Docker images.
+
+Docker Login:
+```
+- name: Login to DockerHub
+  uses: docker/login-action@v3
+  with:
+    username: ${{ secrets.DOCKERHUB_USERNAME }}
+    password: ${{ secrets.DOCKERHUB_TOKEN }}
+```
+Logs in to DockerHub using provided Docker Hub credentials.
+
+Declare Variables:
+```
+- name: Declare variables
+  id: vars
+  shell: bash
+  run: |
+    echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+```
+Declares variables, including a short Git commit SHA, for later use.
+
+Docker Image Build and Push:
+```
+- name: Publish Docker Image on Docker-Hub
+  id: docker_build
+  uses: docker/build-push-action@v5
+  with:
+    context: .
+    push: true
+    tags: simgut/calculator:${{ github.ref_name }}
+```
+Builds and pushes a Docker image based on the provided Dockerfile to Docker Hub.
+
+Deploy JavaDoc:
+```
+- name: Deploy JavaDoc
+  uses: MathieuSoysal/Javadoc-publisher.yml@v2.3.0
+  with:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    javadoc-branch: javadoc
+    java-version: 17
+    target-folder: docs
+```
+Deploys JavaDoc using a third-party action (MathieuSoysal/Javadoc-publisher.yml@v2.3.0). It publishes Java documentation to the "docs" folder.
 
 
 # Lessons Learned
