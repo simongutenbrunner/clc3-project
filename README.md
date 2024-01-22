@@ -38,6 +38,9 @@ The documentation can be found [here](https://simongutenbrunner.github.io/clc3-p
 
 # Git Flow
 
+Git Flow is a branching model for Git introduced by Vincent Driessen, providing guidelines for organizing a Git repository and managing branches to streamline development. It involves Main, Develop, Feature, Release, and Hotfix branches. Main and Develop branches record project history, with the Main-branch for official releases and Develop-branch for feature integration. 
+Features are developed in separate branches and merged into the Develop-branch when finished. Release branches are created for documentation and finalizing releases, merging into Main-branch and updating Develop-branch when being shipped. Hotfix branches, based on Main-branch, allow quick production fixes, merging into both Main and Develop. While long feature branches can lead to delayed integration, Git Flow's isolation benefits development by reducing conflicts with the main branch.
+
 - ```main branch```: stable, production-ready state of project, should be deployable any time
 - ```development branch```: features and fixes merged into this branch => development and integration
 - ```feature branch```: branch off from develop and merge back into develop
@@ -297,9 +300,10 @@ Deploys JavaDoc using a third-party action (MathieuSoysal/Javadoc-publisher.yml@
 # Lessons Learned
 * Setting up a proper workflow using Github actions can be a pain, especially the first time, but once done right is a really satisfying improvement for your quality-of-life.
 * Don't reinvent the wheel
-* The rabbit hole goes deeper (Jenkins, CD, Webhooks, ...)
+* The rabbit hole goes deeper (On-Premise Tools, CD, Webhooks, ...)
 
-# Citations
+
+# Sources
 * https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 * https://docs.github.com/en/actions
 * https://github.com/MathieuSoysal/Javadoc-publisher.yml
