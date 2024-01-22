@@ -159,7 +159,7 @@ The workflow is triggered on two events:
 **Jobs**: 
 ```
 jobs:
-    build_main_release:
+    maven_build:
 ```  
 This workflow consists of a single job named "build_main_release."
 
