@@ -30,6 +30,6 @@ public class CalculatorService {
      */
     public int subtract(int a, int b){
         // ret
-        return Math.abs(a-b);
+        return a-b;
     }
 }
