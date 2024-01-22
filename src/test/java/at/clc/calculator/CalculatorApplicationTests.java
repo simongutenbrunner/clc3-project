@@ -32,7 +32,7 @@ class CalculatorApplicationTests {
     }
 
     @Test
-    public void testSubtract(){
+    public void testSubtractNegatice(){
         assertEquals(-2, this.calculatorService.subtract(2,4));
     }
 }
